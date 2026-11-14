@@ -42,7 +42,7 @@ python -m playwright install --with-deps chromium
 # Playwright 설치 Chromium을 쓰려면 PAUSE_CHROMIUM_PATH 지정.
 python scripts/run-browser-tests.py
 ```
-원본 테스트의 Chromium 경로만 환경변수로 선택 가능하게 했다. 기존 게임 테스트의 판정식은 유지했다.
+원본 테스트의 Chromium 경로를 환경변수로 선택한다. 느린 GPU에서는 고정 대기 대신 실제 진행을 기다리고, 복원 시 실제 경과 시간을 비교한다. 모바일 검색은 검색 상자를 먼저 연다. 게임 규칙은 변경하지 않는다.
 GitHub Actions는 브라우저 설치와 경로 설정을 자동 수행하고 로그·화면을 artifact로 보관한다.
 
 ## 선택형 계정 백업

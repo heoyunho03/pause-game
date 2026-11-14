@@ -1,0 +1,28 @@
+/* PAUSE Sky Roll 3D. This module visually inherits Deep Sunset, intentionally avoiding neon overload. */
+.sky-premium{width:100%;max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:12px;color:#eef5ff;--sky-blue:#335d9e;--sky-orange:#d58d61;--sky-night:#0d1a2c}
+.sky-hud{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}
+.sky-hud>div{background:linear-gradient(150deg,#1d334f,#17263c);border:1px solid #455d7b7e;border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:3px}
+.sky-hud span{font-size:10px;color:#97b0d1;letter-spacing:.03em}.sky-hud strong{font-size:clamp(17px,2.5vw,23px);font-variant-numeric:tabular-nums;letter-spacing:-.045em}.sky-hud small{font-size:11px;color:#d9a481;font-weight:650}
+.sky-viewport{height:380px;width:100%;position:relative;overflow:hidden;background:linear-gradient(160deg,#091527,#183859);border-radius:18px;border:1px solid #52749c77;box-shadow:inset 0 1px #ffffff20,0 12px 30px #03071144;touch-action:none;user-select:none}
+.sky-viewport canvas{width:100%;height:100%;display:block;touch-action:none;cursor:grab}.sky-viewport canvas:active{cursor:grabbing}
+.sky-corner{position:absolute;left:14px;top:13px;pointer-events:none;font-size:10px;font-weight:850;color:#bed6f0b8;letter-spacing:.2em;text-shadow:0 1px 8px #050b19}.sky-corner i{font-style:normal;color:#d58d61}
+.sky-coins{position:absolute;right:14px;top:13px;pointer-events:none;border:1px solid #f4c39055;background:#1a2940c9;color:#edb68b;padding:5px 12px;border-radius:20px;font-weight:850;font-size:12px}
+.sky-start{position:absolute;inset:0;background:linear-gradient(145deg,#08182bdd,#1f3751cf 46%,#4a3636db);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:20px;backdrop-filter:blur(8px)}.sky-start[hidden]{display:none}.sky-orb-mark{font-size:47px;line-height:1;background:linear-gradient(130deg,#759dc8,#dca17a);color:transparent;background-clip:text;text-shadow:0 9px 30px #335d9e44}.sky-start strong{font-size:clamp(30px,6vw,45px);letter-spacing:.18em;font-weight:900}.sky-start span{font-size:12px;color:#d0ddec}.sky-start small{font-size:10px;color:#a9bfd6}
+.sky-play{border:0;border-radius:30px;padding:13px 32px;font-size:14px;font-weight:850;color:#fff;background:linear-gradient(108deg,#335d9e,#7a8093 50%,#d58d61);box-shadow:0 8px 30px #d58d6144;cursor:pointer}.sky-play:hover{filter:brightness(1.14)}
+.sky-fallback{position:absolute;inset:0;background:#0c1e34f0;display:grid;place-items:center;text-align:center;padding:35px;color:#d3e4ff;line-height:1.8}.sky-fallback[hidden]{display:none}
+.sky-bottom{display:flex;gap:9px;align-items:center;justify-content:space-between}.sky-steer{min-width:73px;min-height:49px;background:#1d304a;color:#dbe9fb;border:1px solid #6286b1;border-radius:12px;font-weight:850;font-size:20px;cursor:pointer;touch-action:none}.sky-steer:active{background:#385d87}.sky-tip{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}.sky-tip b{font-size:12px;color:#e2ebf8}.sky-tip span{font-size:10px;color:#92a5bc}.sky-legend{display:flex;flex-wrap:wrap;gap:10px 17px;justify-content:center;color:#91a6bf;font-size:10px}.sky-dot{display:inline-block;width:7px;height:7px;border-radius:2px;margin-right:5px}.sky-dot.blue{background:#6c99c7}.sky-dot.orange{background:#d58d61}
+@media(max-width:600px){.sky-viewport{height:clamp(320px,47dvh,440px);border-radius:14px}.sky-hud>div{padding:8px}.sky-hud span{font-size:9px}.sky-hud strong{font-size:17px}.sky-steer{min-width:57px;min-height:46px}.sky-tip span{font-size:9px}.sky-start strong{font-size:29px}.sky-premium{gap:10px}}
+@media(prefers-reduced-motion:reduce){.sky-start{backdrop-filter:none}}
+
+/* Shared accessible arcade difficulty control */
+.arcade-options{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid #4a67817b;border-radius:13px;background:#172b45;padding:9px 12px;color:#adc6df;font-size:11px}
+.arcade-options label{display:flex;gap:11px;align-items:center;font-weight:800;white-space:nowrap}
+.arcade-options select{min-height:36px;background:#263e5d;color:#f4f5f8;border:1px solid #7190b37d;border-radius:9px;padding:6px 10px;font:inherit;font-size:12px;font-weight:800}
+.arcade-options span{font-size:10px;color:#a0b5cb;text-align:right}
+@media(max-width:390px){.arcade-options{gap:6px}.arcade-options span{max-width:135px}}
+
+/* v1.9: controlled, abstract precision rather than an urban action runner. */
+.sky-viewport{border-color:#688fc6a0;box-shadow:inset 0 0 30px #325f9520,0 12px 28px #080f243f}
+.sky-tip b{color:#b7d8ff}.sky-steer{background:#182b49;border-color:#557cad}
+
+.sky-hud>div[hidden],.run-hud [hidden]{display:none!important}

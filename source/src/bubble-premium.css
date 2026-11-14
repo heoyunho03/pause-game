@@ -1,0 +1,30 @@
+/* PAUSE v1.1 — Bubble Shooter Premium. Shared brand, independent game surface. */
+.pause-shell[data-current-game="bubble"]{--game-accent:#6D91C2;--game-companion:#D58D61}
+.bsp-wrap{width:100%;max-width:542px;margin:0 auto;display:flex;flex-direction:column;gap:10px;min-width:0}
+.bsp-toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.bsp-heading{display:flex;flex-direction:column;gap:3px}
+.bsp-heading strong{font-size:15px;color:#f4f7ff;letter-spacing:-.015em}
+.bsp-heading small{font-size:11px;color:#9cacc6}
+.bsp-difficulties{display:flex;gap:4px;padding:4px;background:#102035;border:1px solid #3b5879;border-radius:14px}
+.bsp-difficulties button{min-height:35px;padding:7px 10px;border-radius:10px;background:transparent;border:1px solid transparent;color:#b2c4db;font-size:11px;font-weight:780;cursor:pointer;white-space:nowrap}
+.bsp-difficulties button.active{background:linear-gradient(110deg,#375e94,#9c807c,#bd815e);border-color:#b9b7ae;color:white;box-shadow:0 3px 14px #0c1c3880}
+.bsp-difficulties button:focus-visible,.bsp-bottom button:focus-visible{outline:2px solid #f4c9a1;outline-offset:3px}
+.bsp-scoreboard{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.bsp-stat{padding:10px 12px;border:1px solid #324a65;border-radius:13px;background:linear-gradient(150deg,#172a40,#152237);display:flex;flex-direction:column;gap:3px}
+.bsp-stat span{font-size:10px;color:#a3b7ca;font-weight:650}.bsp-stat b{font-variant-numeric:tabular-nums;color:#f1f5fa;font-size:18px;letter-spacing:-.015em}
+.bsp-game-area{width:min(100%,404px);margin:0 auto;position:relative;border-radius:21px;padding:9px;background:linear-gradient(160deg,#1b395b 0%,#1b2a43 49%,#775545 100%);box-shadow:0 10px 35px #08142388,inset 0 1px #ffffff24}
+.bsp-canvas-frame{border:1px solid #6b86a2aa;border-radius:15px;overflow:hidden;background:#0b192d;position:relative}
+#bubblePremiumCanvas{display:block;width:100%;height:auto;aspect-ratio:340/513;touch-action:none;cursor:crosshair;user-select:none;-webkit-user-select:none}
+.bsp-info{position:absolute;top:19px;left:19px;right:19px;display:flex;align-items:center;justify-content:space-between;gap:8px;pointer-events:none}
+.bsp-chip{border:1px solid #7899b452;border-radius:100px;background:#0d1d30cc;backdrop-filter:blur(7px);padding:6px 9px;font-size:10px;letter-spacing:.035em;color:#d2e3f8;font-weight:750}
+.bsp-chip.danger{color:#eeb897;border-color:#db906855}
+.bsp-bottom{display:flex;justify-content:center;align-items:center;gap:9px;flex-wrap:wrap}
+.bsp-bottom button{border:1px solid #4d6988;background:#223d5c;border-radius:13px;min-height:44px;color:#f0f4fd;padding:8px 13px;font-size:12px;font-weight:770;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.bsp-bottom button:hover{background:#335778}.bsp-bottom button:disabled{opacity:.46;cursor:not-allowed}
+.bsp-bottom .bsp-fire{min-width:105px;background:linear-gradient(110deg,#365f9b,#6b83a0 52%,#bd855e);border-color:#8d9db0}
+.bsp-swatch{height:18px;width:18px;display:inline-block;border-radius:50%;border:1px solid #ffffff85;box-shadow:inset -3px -3px 5px #0005,inset 2px 2px 4px #fff7;background:var(--bspcolor,#8ea8c5)}
+.bsp-status{margin:0;text-align:center;font-size:12px;line-height:1.45;color:#b7c7d9;min-height:18px}
+.bsp-guide{margin:0 auto;text-align:center;max-width:450px;font-size:11px;color:#93a9c1;line-height:1.65}
+.bsp-small{font-size:10px;color:#7d9bbd}
+@media(max-width:600px){.bsp-wrap{gap:9px}.bsp-difficulties{width:100%;justify-content:space-around}.bsp-difficulties button{flex:1}.bsp-heading strong{font-size:14px}.bsp-game-area{width:min(100%,345px);padding:6px;border-radius:16px}.bsp-canvas-frame{border-radius:12px}.bsp-stat{padding:8px 10px}.bsp-stat b{font-size:16px}.bsp-bottom{gap:6px}.bsp-bottom button{padding:8px 10px}.bsp-guide{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.bsp-wrap *{transition:none!important;animation:none!important}}

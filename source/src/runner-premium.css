@@ -1,0 +1,28 @@
+/* PAUSE Deep Sunset — premium runner HUD and responsive touch pad */
+.run-premium{--run-blue:#335d9e;--run-sunset:#d58d61;color:#ecf3fd;max-width:660px;margin:0 auto;display:grid;gap:10px}
+.run-hud{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.run-hud>div{background:linear-gradient(150deg,#1c3453,#17273d);border:1px solid #53759d85;border-radius:13px;padding:10px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.run-hud span{font-size:10px;color:#b1c4db}.run-hud strong{font-size:clamp(16px,2.6vw,23px);font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:-.025em}.run-hud small{font-size:10px;color:#deb08a}
+.run-viewport{height:390px;position:relative;overflow:hidden;border-radius:18px;background:linear-gradient(165deg,#0d1a2c,#294869);border:1px solid #6087a77a;box-shadow:0 16px 30px #07101f3d;touch-action:none}
+.run-viewport canvas{width:100%;height:100%;display:block;touch-action:none;cursor:grab}.run-viewport canvas:active{cursor:grabbing}
+.run-tag{position:absolute;top:13px;left:14px;font-size:10px;letter-spacing:.15em;font-weight:800;color:#d4e3f4bf;pointer-events:none}.run-tag em{font-style:normal;color:#d58d61}.run-gems{position:absolute;right:13px;top:11px;color:#f4cb9f;background:#152740c9;border:1px solid #d58d615c;border-radius:18px;padding:5px 11px;font-size:12px;font-weight:850;pointer-events:none}
+.run-launch{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:22px;text-align:center;background:linear-gradient(125deg,#091a30de,#183651e8 49%,#573d37e0);backdrop-filter:blur(7px)}.run-launch[hidden]{display:none}.run-title-mark{font-size:45px;color:#e0a375}.run-launch b{font-size:clamp(25px,5vw,38px);letter-spacing:.1em}.run-launch p{margin:0;color:#c6d7e9;font-size:13px}.run-launch small{font-size:10px;color:#aabed3}.run-launch button{min-height:45px;padding:10px 30px;border:0;border-radius:24px;background:linear-gradient(100deg,#335d9e,#778196 54%,#d58d61);color:white;font-weight:800;box-shadow:0 8px 28px #d58d613b;cursor:pointer}
+.run-unavailable{position:absolute;inset:0;z-index:3;background:#081627eb;display:grid;place-items:center;text-align:center;color:#ecf2fb;padding:20px}.run-unavailable[hidden]{display:none}
+.run-pad{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.run-pad button{height:53px;touch-action:manipulation;border:1px solid #6385a7;background:#213750;color:#edf4fd;font-size:22px;border-radius:13px;font-weight:800;cursor:pointer}.run-pad button:nth-child(2){border-color:#d7a176;background:#4b4050}.run-pad button:nth-child(3){border-color:#718fbb}.run-pad button:active{background:#3c648d}.run-pad span{font-size:11px;vertical-align:3px}
+.run-note,.run-subnote{margin:0;text-align:center;color:#adc0d5;font-size:11px;line-height:1.5}.run-subnote{color:#849bb3;font-size:10px}
+@media(max-width:600px){.run-premium{gap:8px}.run-hud>div{padding:8px 6px}.run-hud span{font-size:9px}.run-hud strong{font-size:17px}.run-viewport{height:clamp(300px,45dvh,430px);border-radius:13px}.run-pad button{height:50px;font-size:21px}.run-launch b{font-size:27px}.run-note{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.run-launch{backdrop-filter:none}}
+.run-pad button{display:flex;align-items:center;justify-content:center;gap:5px;white-space:nowrap}.run-pad button span{font-size:10px;white-space:nowrap;vertical-align:baseline}
+@media(max-width:400px){.run-pad button{gap:3px;font-size:19px}.run-pad button span{font-size:9px}}
+
+/* Shared accessible arcade difficulty control */
+.arcade-options{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid #4a67817b;border-radius:13px;background:#172b45;padding:9px 12px;color:#adc6df;font-size:11px}
+.arcade-options label{display:flex;gap:11px;align-items:center;font-weight:800;white-space:nowrap}
+.arcade-options select{min-height:36px;background:#263e5d;color:#f4f5f8;border:1px solid #7190b37d;border-radius:9px;padding:6px 10px;font:inherit;font-size:12px;font-weight:800}
+.arcade-options span{font-size:10px;color:#a0b5cb;text-align:right}
+@media(max-width:390px){.arcade-options{gap:6px}.arcade-options span{max-width:135px}}
+
+/* v1.9: warm urban parkour identity, not the abstract blue SKY ROLL world. */
+.run-viewport{background:linear-gradient(155deg,#30283d,#8f5b57 52%,#282d3e);border-color:#cc90766d}
+.run-launch{background:linear-gradient(135deg,#231e33f0,#704d4add 57%,#202e49e8)}
+.run-hud>div{background:linear-gradient(140deg,#382e42,#263349);border-color:#ae857673}
+.run-pad button{background:#403548;border-color:#997f88}.run-pad button:nth-child(2){background:#76504d;border-color:#dda77b}
