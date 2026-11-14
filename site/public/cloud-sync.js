@@ -7,6 +7,9 @@ const make = (tag, text = '', css = '') => {
   element.style.cssText = css;
   return element;
 };
+const responsiveStyle = make('style');
+responsiveStyle.textContent = '@media(max-width:690px){#pause-cloud-toggle{bottom:calc(82px + env(safe-area-inset-bottom))!important}#pause-cloud-panel{bottom:calc(134px + env(safe-area-inset-bottom))!important;max-height:calc(100dvh - 154px)!important}}';
+document.head.append(responsiveStyle);
 let token = null, config = null, busy = false, googleLoading = false, session = 0;
 const toggle = make('button','☁','position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:10050;width:44px;height:44px;border-radius:50%;border:1px solid #6c82a9;color:#fff;background:linear-gradient(135deg,#335D9E,#D58D61);box-shadow:0 5px 20px #0008;font-size:18px;cursor:pointer;');
 toggle.id = 'pause-cloud-toggle'; toggle.type = 'button';
