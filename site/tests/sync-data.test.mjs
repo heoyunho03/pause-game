@@ -40,3 +40,11 @@ test('checkpoint failure prevents all game changes',() => {
 test('invalid remote keys rejected before checkpoint writes',() => {
   const s=new Storage();assert.throws(()=>applySnapshot(s,{'pause:theme':'dark',evil:'yes'}));assert.equal(s.length,0);
 });
+test('undo returns to exact supported-key set while preserving other apps',() => {
+  const s=new Storage();s.setItem('pause:2048best','500');s.setItem('other-app','keep');
+  applySnapshot(s,{'pause:2048best':'800','pause:theme':'dark'});
+  const checkpoint=readRecovery(s);
+  applySnapshot(s,checkpoint.snapshot,{replace:true});
+  assert.deepEqual(captureSnapshot(s),{'pause:2048best':'500'});
+  assert.equal(s.getItem('other-app'),'keep');
+});

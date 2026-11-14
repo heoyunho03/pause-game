@@ -16,7 +16,7 @@ with sync_playwright() as p:
   print('viewport',width,'canvas',page.evaluate('({w:document.querySelector("#skyCanvas").width,h:document.querySelector("#skyCanvas").height})'),'err',errors,flush=True)
   if width in [1440,390]:page.screenshot(path=f'/mnt/data/PAUSE_v16_sky_{width}_pre.png')
   page.locator('#skyPlay').click()
-  page.wait_for_timeout(1000)
+  page.wait_for_function('skyActive.state.distance > 10',timeout=15000)
   assert page.evaluate('skyActive?.state.running')
   dist=page.evaluate('skyActive.state.distance')
   assert dist>10,(width,dist)

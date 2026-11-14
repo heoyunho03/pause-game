@@ -11,7 +11,7 @@ with sync_playwright() as p:
   assert page.locator('.run-premium').is_visible()
   assert page.locator('#runUnavailable').is_hidden(),(width,'no renderer')
   assert page.evaluate('Boolean(document.querySelector("#runCanvas").width)')
-  page.locator('#runPlay').click();page.wait_for_timeout(670)
+  page.locator('#runPlay').click();page.wait_for_function('runnerActive.state.distance > 5',timeout=15000)
   assert page.evaluate('runnerActive.state.distance')>5,(width,'no movement')
   old=page.evaluate('runnerActive.state.lane');page.keyboard.press('ArrowLeft');page.wait_for_timeout(70)
   new=page.evaluate('runnerActive.state.lane');assert new==max(0,old-1),(width,'key left',new)

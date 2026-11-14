@@ -28,9 +28,12 @@ with sync_playwright() as p:
  page.locator('[data-shell-action="resume"]').click();page.wait_for_timeout(300)
  assert page.evaluate('mineElapsed()')>after+200
  # save elapsed then switch away should pause; loaded record resumes without reset
+ saved_elapsed=page.evaluate('mineElapsed()')
  page.locator('#closeModal').click()
  page.locator('[data-play="mines"]').first.click()
- assert page.evaluate('mineState.started && mineElapsed() > 400')
+ assert page.evaluate('mineState.started')
+ restored_elapsed=page.evaluate('mineElapsed()')
+ assert restored_elapsed >= saved_elapsed-25,(saved_elapsed,restored_elapsed)
  assert not errors,errors
  print(json.dumps({'longPressFlag':True,'noGhostClick':True,'hintVerified':result,'pauseClock':True,'sessionRestore':True,'pageErrors':errors},ensure_ascii=False))
  b.close()

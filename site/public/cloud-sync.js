@@ -156,7 +156,7 @@ async function loadGoogle() {
         });
       }
     });
-    window.google.accounts.id.renderButton(slot,{theme:'outline',size:'large',text:'signin_with',width:270,shape:'pill'});
+    window.google.accounts.id.renderButton(slot,{theme:'outline',size:'large',text:'signin_with',width:Math.min(270,panel.clientWidth-34),shape:'pill'});
   };
   script.onerror = () => { googleLoading = false; status.textContent = 'Google에 접속하지 못했습니다. 기기 기록은 계속 사용할 수 있어요.'; };
   document.head.append(script);

@@ -19,6 +19,7 @@ with sync_playwright() as p:
   page.locator('#librarySort').select_option('short')
   assert page.locator('.game-card').first.get_attribute('data-game-id') in ['rolling','runner','knife']
   page.locator('#librarySort').select_option('default')
+  page.locator('#searchBox').click()
   page.locator('#searchInput').fill('스도쿠')
   assert page.locator('.game-card').count()==1
   page.locator('#searchInput').fill('')

@@ -50,7 +50,7 @@ with sync_playwright() as p:
                 page.keyboard.press("ArrowUp")
                 assert page.evaluate("runnerActive.state.distance")>=0
             page.locator("#closeModal").click()
-        page.locator("#pause-cloud-toggle").click()
+        page.locator("#accountButton").click()
         assert page.locator("#pause-cloud-backup").is_hidden()
         assert page.locator("#pause-local-download").is_enabled()
         page.screenshot(path=str(OUT/("guest-"+str(width)+".png")),full_page=True)
