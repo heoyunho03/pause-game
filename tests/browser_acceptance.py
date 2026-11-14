@@ -47,6 +47,7 @@ with sync_playwright() as p:
                 assert page.evaluate("playStore.number('2048best')")>=8192
             if game=="rolling":
                 page.locator("#skyPlay").click()
+                page.wait_for_function('skyActive.state.distance > 0',timeout=15000)
                 page.keyboard.down("ArrowRight");page.wait_for_timeout(100);page.keyboard.up("ArrowRight")
                 assert page.evaluate("skyActive.state.distance")>0
             if game=="runner":

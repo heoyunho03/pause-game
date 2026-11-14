@@ -3,7 +3,7 @@
 프로젝트 삭제·교체·URL 변경은 하지 않는다.
 
 ## GitHub Actions
-워크플로는 feature 브랜치·PR·main에서 빌드, JS 구문, 비밀정보 패턴, JWT, 로컬 PostgreSQL, 원본 게임·브라우저 검사를 실행한다.
+워크플로는 PR·main에서 빌드, JS 구문, 비밀정보 패턴, JWT, 로컬 PostgreSQL, 원본 게임·브라우저 검사를 실행한다.
 main에서 검증이 성공하면 **그때 생성한 동일한 배포 artifact**를 Wrangler로 배포한다.
 Actions Secrets:
 - `CLOUDFLARE_ACCOUNT_ID`: 대상 Cloudflare 계정 ID.

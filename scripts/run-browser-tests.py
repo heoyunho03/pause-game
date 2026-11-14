@@ -1,4 +1,4 @@
-"""Run original game tests without changing their assertions, then deployed-build UI."""
+"""Run deployed-build UI and legacy game regressions with recorded logs."""
 from pathlib import Path
 import os, subprocess, sys
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,14 +21,6 @@ tests = [
     "test_runner_premium", "test_identity_split", "test_v18_quality", "test_v20_ui",
 ]
 failed = []
-for name in tests:
-    command=[sys.executable,str(ROOT/"source/tests"/(name+".py"))]
-    result=subprocess.run(command,cwd=ROOT,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,timeout=100)
-    (OUT/(name+".log")).write_text(result.stdout)
-    print(("PASS " if result.returncode==0 else "FAIL ")+name,flush=True)
-    if result.returncode:
-        failed.append(name)
-        print(result.stdout[-1800:],flush=True)
 server=subprocess.Popen(["node","site/scripts/serve-test.mjs"],cwd=ROOT,stdout=subprocess.PIPE,text=True)
 try:
     assert server.stdout.readline().startswith("READY")
@@ -39,5 +31,13 @@ try:
 finally:
     server.terminate()
     server.wait(timeout=15)
+for name in tests:
+    command=[sys.executable,str(ROOT/"source/tests"/(name+".py"))]
+    result=subprocess.run(command,cwd=ROOT,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,timeout=100)
+    (OUT/(name+".log")).write_text(result.stdout)
+    print(("PASS " if result.returncode==0 else "FAIL ")+name,flush=True)
+    if result.returncode:
+        failed.append(name)
+        print(result.stdout[-1800:],flush=True)
 print("Browser suites:",len(tests)+1,"Failures:",failed,flush=True)
 if failed: sys.exit(1)
